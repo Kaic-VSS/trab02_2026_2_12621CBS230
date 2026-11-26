@@ -1,0 +1,275 @@
+{
+  "info": {
+    "name": "Trabalho 02 - CRUD e Riscos",
+    "description": "Coleção acadêmica para teste de API local. Execute na ordem indicada em uma base vazia.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Saúde GET",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Listar ativos",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/ativos",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "ativos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Cadastrar ativo 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/ativos",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "ativos"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 1,\n  \"nome\": \"Notebook A\",\n  \"tipo\": 1,\n  \"setor\": \"TI\",\n  \"responsavel\": \"Ana\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Cadastrar ativo 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/ativos",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "ativos"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"id\": 2,\n  \"nome\": \"Servidor B\",\n  \"tipo\": 2,\n  \"setor\": \"TI\",\n  \"responsavel\": \"Bia\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Consultar ativo 1",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/ativos/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "ativos",
+            "1"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Cadastrar vulnerabilidade 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/ativos/1/vulnerabilidades",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "ativos",
+            "1",
+            "vulnerabilidades"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"descricao\": \"Sistema desatualizado\",\n  \"categoria\": \"Software\",\n  \"severidade\": \"Alta\",\n  \"status\": \"Aberta\",\n  \"nota_cvss\": 7.5\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Cadastrar dependência 2 recebe 20% do 1",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/dependencias",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "dependencias"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"destino_id\": 2,\n  \"origem_id\": 1,\n  \"peso\": 0.2\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Consultar matriz e riscos",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/riscos",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "riscos"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Atualizar ativo 1",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/ativos/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "ativos",
+            "1"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"setor\": \"Infraestrutura\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Excluir ativo 1",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/ativos/1",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "ativos",
+            "1"
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:2230"
+    }
+  ]
+}
